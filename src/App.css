@@ -3,8 +3,10 @@
 }
 
 * {
+  border: red solid 2px;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .App-header {
@@ -31,5 +33,40 @@
 
 
 .input-cont, .list-cont {
-  border: red solid 2px;
+  width: 40%;
+  display: flex;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.input-field {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+}
+
+.two-inputs {
+  width: 90%;
+}
+
+.two-inputs * {
+  width: 100%;
+}
+
+.textarea {
+  margin-top: 5px;
+  height: 0px;
+  overflow: hidden;
+  transition: height 300ms ease;
+}
+
+.textarea.show {
+  height: 75px;
 }
