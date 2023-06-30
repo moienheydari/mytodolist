@@ -1,4 +1,5 @@
 import React from 'react';
+import { data } from '../data/data';
 
 export default function InputField () {
     const [task, setTask] = React.useState('');
@@ -11,7 +12,11 @@ export default function InputField () {
     }, [task]);
 
     function handleClick() {
-        
+        data.tasks.push({
+            task : task,
+            subTask : subtask
+        });
+        alert (JSON.stringify(data, '', 2));
     }
 
     return (

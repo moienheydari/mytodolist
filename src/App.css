@@ -61,7 +61,7 @@ button {
 }
 
 .textarea {
-  margin-top: 5px;
+  margin-top: 1px;
   height: 0px;
   overflow: hidden;
   transition: height 300ms ease;
