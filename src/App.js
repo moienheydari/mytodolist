@@ -1,4 +1,7 @@
+import React from 'react';
 import './App.css';
+import InputContainer from './components/inputContainer';
+import ListContainer from './components/listContainer';
 
 function App() {
   return (
@@ -6,6 +9,10 @@ function App() {
       <header className="App-header">
         <p>Hello you</p>
       </header>
+      <body className="App-body">
+        <InputContainer />
+        <ListContainer />
+      </body>
     </div>
   );
 }
