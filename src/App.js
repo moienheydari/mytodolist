@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import InputContainer from './components/inputContainer';
 import ListContainer from './components/listContainer';
+import { data } from './data/data';
 
 function App() {
+  const [update, setUpdate] = useState(false);
+  function toUpdate () {setUpdate(true)};
+
+  useEffect(()=>{
+    setUpdate(false);
+  }, [update]);
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>Hello you</p>
+        <p>Hello {data.username}</p>
       </header>
       <body className="App-body">
-        <InputContainer />
+        <InputContainer handleUpdate={toUpdate}/>
         <ListContainer />
       </body>
     </div>

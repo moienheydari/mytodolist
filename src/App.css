@@ -3,7 +3,7 @@
 }
 
 * {
-  border: red solid 2px;
+  border: red solid 2px; 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -110,5 +110,5 @@ button {
 }
 
 .subtask-detail.show {
-  height: 75px;
+  height: 100px;
 }

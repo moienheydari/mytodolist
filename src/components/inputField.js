@@ -1,7 +1,7 @@
 import React from 'react';
 import { data } from '../data/data';
 
-export default function InputField () {
+export default function InputField ({handleUpdate}) {
     const [task, setTask] = React.useState('');
     const [subtask, setSubTask] = React.useState('');
     const [written, setWritten] = React.useState(false);
@@ -17,7 +17,7 @@ export default function InputField () {
             subTask : subtask,
             id : Date.now()
         });
-        alert (JSON.stringify(data, '', 2));
+        handleUpdate();
     }
 
     return (
