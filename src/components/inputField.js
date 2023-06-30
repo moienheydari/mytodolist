@@ -14,7 +14,8 @@ export default function InputField () {
     function handleClick() {
         data.tasks.push({
             task : task,
-            subTask : subtask
+            subTask : subtask,
+            id : Date.now()
         });
         alert (JSON.stringify(data, '', 2));
     }
