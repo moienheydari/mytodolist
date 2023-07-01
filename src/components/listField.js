@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/listCont.css';
 
-export default function ListField({ task, subtask, done }) {
+export default function ListField({ task, subtask, done, taskIndex, changeDone }) {
     const [clicked, setClicked] = useState(false);
-    const [strike, setStrike] = useState(done)
+    const [strike, setStrike] = useState(done);
+
+    useEffect(()=>{
+        changeDone(taskIndex, strike);
+    },[strike]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
@@ -16,12 +20,18 @@ export default function ListField({ task, subtask, done }) {
         }
     }
 
+    function handleDelClick() {
+
+    }
+
     return (
         <div className='list-field'>
             <div className='task-field' onClick={handleTaskClick}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''}`}>{task}</span>
-                <button className={`taskButt ${strike ? 'strikethrough' : ''}`} onClick={handleDoneClick}>Done</button>
-                <button className='taskButt'>Del.</button>
+                <button className={`taskButt ${strike ? 'strikethrough' : ''}`} onClick={handleDoneClick}>
+                    Done</button>
+                <button className='taskButt' onClick={handleDelClick}>
+                    Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'strikethrough' : ''}`}>
                 <span className='subtask-text'>{subtask}</span>
