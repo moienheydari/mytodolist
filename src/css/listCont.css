@@ -1,0 +1,55 @@
+.list-cont {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    display: flex;
+}
+
+
+.list-field {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.task-name {
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.task-name * {
+    margin: 2px;
+}
+
+
+
+.subtask-detail {
+    width: 100%;
+    margin-top: 1px;
+    height: 0px;
+    overflow: hidden;
+    transition: height 300ms ease;
+}
+
+.subtask-detail.show {
+    height: 100px;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.taskButt {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 1px;
+    border-radius: 40%;
+    position: relative;
+}

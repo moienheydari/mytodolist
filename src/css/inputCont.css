@@ -1,0 +1,42 @@
+.input-cont {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    display: flex;
+}
+
+.addButt {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+
+.input-field {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+}
+
+.two-inputs {
+    width: 90%;
+}
+
+.two-inputs * {
+    width: 100%;
+}
+
+.textarea {
+    margin-top: 1px;
+    height: 0px;
+    overflow: hidden;
+    transition: height 250ms ease;
+}
+
+.textarea.show {
+    height: 75px;
+}

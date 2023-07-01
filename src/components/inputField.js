@@ -1,5 +1,6 @@
 import React from 'react';
-import { data } from '../data/data';
+import data from '../data/data';
+import '../css/inputCont.css'
 
 export default function InputField ({handleUpdate}) {
     const [task, setTask] = React.useState('');
@@ -9,14 +10,16 @@ export default function InputField ({handleUpdate}) {
     React.useEffect(() => {
         setWritten((task !== ""));
         setSubTask((prev) => {setSubTask(written? prev : '')});
-    }, [task]);
+    }, [task, written]);
 
     function handleClick() {
         data.tasks.push({
             task : task,
             subTask : subtask,
-            id : Date.now()
+            id : Date.now(),
+            done : false
         });
+        setTask('');
         handleUpdate();
     }
 
@@ -35,7 +38,7 @@ export default function InputField ({handleUpdate}) {
                     onChange={({target}) => {setSubTask(target.value)}}
                 ></textarea>
             </div>
-            <button onClick={handleClick}>Add</button>
+            <button className='addButt' onClick={handleClick}>Add</button>
         </div>
     )
 
