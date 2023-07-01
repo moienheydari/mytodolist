@@ -1,44 +1,74 @@
 .list-cont {
+    margin-top: 5px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 50%;
     display: flex;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fcad1a;
+    padding: 1.7px;
 }
 
 
 .list-field {
+    margin: 2.5px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     display: flex;
     width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f9cb00;
 }
 
-.task-name {
+.task-field {
+    margin-bottom: 0px;
     flex-direction: row;
     align-items: center;
     display: flex;
     width: 100%;
     position: relative;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #5e59b1;
 }
 
-.task-name * {
+.task-field * {
     margin: 2px;
 }
 
-
+.task-name {
+    font-weight: bold;
+    font-size: 25px;
+    color: #000000;
+    margin: 3px;
+    cursor: sw-resize;
+}
 
 .subtask-detail {
+    display: flex;
+    justify-content: left;
     width: 100%;
-    margin-top: 1px;
+    margin-top: 0px;
     height: 0px;
     overflow: hidden;
     transition: height 300ms ease;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #9e99ff;
+}
+
+.subtask-text {
+    font-size: 16px;
+    color: #500404;
+    margin: 2.5px;
 }
 
 .subtask-detail.show {
-    height: 100px;
+    height: 75px;
 }
 
 .strikethrough {
@@ -46,8 +76,9 @@
 }
 
 .taskButt {
-    height: 40px;
-    width: 40px;
+    font-size: 13px;
+    height: 30px;
+    width: 45px;
     text-align: center;
     padding: 1px;
     border-radius: 40%;

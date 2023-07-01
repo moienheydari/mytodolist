@@ -4,9 +4,17 @@
     justify-content: center;
     width: 50%;
     display: flex;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ff5722;
+}
+
+.input-cont * {
+    margin: 2.5px;
 }
 
 .addButt {
+    font-size: 15px;
     height: 40px;
     width: 40px;
     margin: 10px;
@@ -30,7 +38,13 @@
     width: 100%;
 }
 
+.input-task {
+    font-size: 25px;
+    font-weight: bold;
+}
+
 .textarea {
+    font-size: 16px;
     margin-top: 1px;
     height: 0px;
     overflow: hidden;

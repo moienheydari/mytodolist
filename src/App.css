@@ -3,7 +3,8 @@
 }
 
 * {
-  border: red solid 2px; 
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,7 +22,7 @@
 }
 
 .App-body {
-  background-color: #737983;
+  background-color: #019ab5;
   height: 95vh;
   display: flex;
   flex-direction: column;
@@ -29,4 +30,24 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+button {
+  font-weight: bold;
+  border: #000000 1.6px solid;
+  background-color: #ff0000;
+  color: #000000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff7777;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
 }
