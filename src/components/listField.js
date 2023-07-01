@@ -10,7 +10,8 @@ export default function ListField({ task, subtask, done }) {
     }
 
     function handleTaskClick({ target }) {
-        if (target.className !== 'taskButt') {
+        const theClass = JSON.stringify(target.className);
+        if (!theClass.includes('taskButt')) {
             setClicked((prev) => { return !prev });
         }
     }
@@ -19,7 +20,7 @@ export default function ListField({ task, subtask, done }) {
         <div className='list-field'>
             <div className='task-field' onClick={handleTaskClick}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''}`}>{task}</span>
-                <button className='taskButt' onClick={handleDoneClick}>Done</button>
+                <button className={`taskButt ${strike ? 'strikethrough' : ''}`} onClick={handleDoneClick}>Done</button>
                 <button className='taskButt'>Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'strikethrough' : ''}`}>
