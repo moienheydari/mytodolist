@@ -39,18 +39,34 @@
 }
 
 .input-task {
+    width: 100%;
+    padding: 2px;
+    margin-bottom: 0px;
     font-size: 25px;
     font-weight: bold;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #e0e0e0;
 }
 
 .textarea {
+    width: 100%;
+    padding: 0px;
+    margin-top: 0;
     font-size: 16px;
-    margin-top: 1px;
     height: 0px;
     overflow: hidden;
-    transition: height 250ms ease;
+    transition: 500ms ease;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    transform-origin: top;
+    transform: scaleY(0);
+    resize: none;
 }
 
 .textarea.show {
     height: 75px;
+    padding: 2px;
+    transform: scaleY(1);
 }
