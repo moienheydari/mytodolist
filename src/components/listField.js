@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/listCont.css';
+import data from '../data/data';
 
-export default function ListField({ task, subtask, done }) {
+export default function ListField({ task, subtask, done, taskIndex, handleUpdate }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done)
+
+    useEffect(() => {
+        data.tasks[taskIndex].done = strike;
+        localStorage.setItem('myData', JSON.stringify(data));
+        handleUpdate();
+    }, [strike, taskIndex, handleUpdate]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });

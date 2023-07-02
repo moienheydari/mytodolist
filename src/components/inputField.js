@@ -13,6 +13,12 @@ export default function InputField({ handleUpdate }) {
     }, [task, written]);
 
     function handleClick() {
+        if (task === 'reset') {
+            localStorage.removeItem('myData');
+            data.tasks = [];
+            handleUpdate();
+            return;
+        }
         if (task) {
             data.tasks.push({
                 task: task,
@@ -21,6 +27,7 @@ export default function InputField({ handleUpdate }) {
                 done: false
             });
             setTask('');
+            localStorage.setItem('myData', JSON.stringify(data));
             handleUpdate();
         } else {
             alert('PLease enter a task')

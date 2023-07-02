@@ -6,21 +6,20 @@ import data from './data/data';
 
 function App() {
   const [update, setUpdate] = useState(false);
-  function toUpdate () {setUpdate(true)};
+  function toUpdate () {setUpdate((prev)=>{return !prev;})};
 
   useEffect(()=>{
-    localStorage.setItem('myData', JSON.stringify(data));
-    setUpdate(false);
+    setUpdate((prev)=>{return !prev;});
   }, [update]);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Hello {data.username}</p>
+        <p>Hello, {data.username}!</p>
       </header>
       <body className="App-body">
         <InputContainer handleUpdate={toUpdate}/>
-        <ListContainer />
+        <ListContainer handleUpdate={toUpdate}/>
       </body>
     </div>
   );
