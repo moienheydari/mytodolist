@@ -2,23 +2,35 @@ import React, { useEffect, useState } from 'react';
 import '../css/listCont.css';
 import data from '../data/data';
 
-export default function ListField({ task, subtask, done, taskIndex, handleUpdate }) {
+export default function ListField({ task, subtask, done, id, handleUpdate }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done);
-    const [del, setDEl] = useState(false);
+    const [del, setDel] = useState(false);
 
     useEffect(() => {
-        if (data.tasks[taskIndex]) {
-            data.tasks[taskIndex].done = strike;
-            localStorage.setItem('myData', JSON.stringify(data));
-        }
+        data.tasks = data.tasks.map(e => {
+            if (e.task === id) {
+                return {
+                    ...e,
+                    done: strike,
+                }
+            } else {
+                return e;
+            }
+        });
         if (del) {
-            data.tasks.splice(taskIndex, 1);
-            localStorage.setItem('myData', JSON.stringify(data));
-            setDEl(false);
+            setDel(false);
+            data.tasks = data.tasks.filter(e => {
+                if (e.task === id) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
         }
+        localStorage.setItem('myData', JSON.stringify(data));
         handleUpdate();
-    }, [del, strike, taskIndex, handleUpdate]);
+    }, [del, strike, handleUpdate, id]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
@@ -32,7 +44,7 @@ export default function ListField({ task, subtask, done, taskIndex, handleUpdate
     }
 
     function handleDelClick() {
-        setDEl(true);
+        setDel(true);
     }
 
     return (

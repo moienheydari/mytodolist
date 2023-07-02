@@ -8,8 +8,8 @@ export default function ListContainer({ handleUpdate }) {
         <>
             <div className='list-cont'>
                 {
-                    data.tasks.map((e, index) => {
-                        return <ListField key={`1000${index}`} task={e.task} subtask={e.subTask} done={e.done} taskIndex={index} handleUpdate={handleUpdate} />;
+                    data.tasks.map((e) => {
+                        return <ListField key={`1000${e.task}`} task={e.task} subtask={e.subTask} done={e.done} id={e.task} handleUpdate={handleUpdate} />;
                     })
                 }
             </div>
