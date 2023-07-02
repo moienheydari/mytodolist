@@ -48,13 +48,13 @@ export default function ListField({ task, subtask, done, id, handleUpdate }) {
     }
 
     return (
-        <div className='list-field'>
-            <div className='task-field' onClick={handleTaskClick}>
+        <div className={`list-field`}>
+            <div className={`task-field ${strike ? 'trans' : ''}`} onClick={handleTaskClick}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''}`}>{task}</span>
-                <button className={`taskButt ${strike ? 'strikethrough' : ''}`} onClick={handleDoneClick}>Done</button>
-                <button className='taskButt' onClick={handleDelClick}>Del.</button>
+                <button className={`taskButt ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''}`} onClick={handleDoneClick}>Done</button>
+                <button className={`taskButt `} onClick={handleDelClick}>Del.</button>
             </div>
-            <div className={`subtask-detail ${clicked ? 'show' : 'hide'}`}>
+            <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
                 <span className={`subtask-text ${strike ? 'strikethrough' : ''}`}>{subtask}</span>
             </div>
         </div>
