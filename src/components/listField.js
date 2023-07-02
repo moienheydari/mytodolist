@@ -4,13 +4,21 @@ import data from '../data/data';
 
 export default function ListField({ task, subtask, done, taskIndex, handleUpdate }) {
     const [clicked, setClicked] = useState(false);
-    const [strike, setStrike] = useState(done)
+    const [strike, setStrike] = useState(done);
+    const [del, setDEl] = useState(false);
 
     useEffect(() => {
-        data.tasks[taskIndex].done = strike;
-        localStorage.setItem('myData', JSON.stringify(data));
+        if (data.tasks[taskIndex]) {
+            data.tasks[taskIndex].done = strike;
+            localStorage.setItem('myData', JSON.stringify(data));
+        }
+        if (del) {
+            data.tasks.splice(taskIndex, 1);
+            localStorage.setItem('myData', JSON.stringify(data));
+            setDEl(false);
+        }
         handleUpdate();
-    }, [strike, taskIndex, handleUpdate]);
+    }, [del, strike, taskIndex, handleUpdate]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
@@ -23,12 +31,16 @@ export default function ListField({ task, subtask, done, taskIndex, handleUpdate
         }
     }
 
+    function handleDelClick() {
+        setDEl(true);
+    }
+
     return (
         <div className='list-field'>
             <div className='task-field' onClick={handleTaskClick}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''}`}>{task}</span>
                 <button className={`taskButt ${strike ? 'strikethrough' : ''}`} onClick={handleDoneClick}>Done</button>
-                <button className='taskButt'>Del.</button>
+                <button className='taskButt' onClick={handleDelClick}>Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'}`}>
                 <span className={`subtask-text ${strike ? 'strikethrough' : ''}`}>{subtask}</span>
