@@ -19,7 +19,7 @@ export default function InputField({ handleUpdate }) {
             handleUpdate();
             return;
         }
-        if (task) {
+        if (task && data.tasks.length < 7) {
             data.tasks.push({
                 task: task,
                 subTask: subtask,
@@ -29,8 +29,11 @@ export default function InputField({ handleUpdate }) {
             setTask('');
             localStorage.setItem('myData', JSON.stringify(data));
             handleUpdate();
+        } else if (data.tasks.length > 6) {
+            setTask('');
+            alert('No more tasks, delete some');
         } else {
-            alert('PLease enter a task')
+            alert('PLease enter a task');
         }
     }
 
