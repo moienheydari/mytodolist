@@ -1,5 +1,5 @@
 import React from 'react';
-import data, { eraseData } from '../data/data';
+import data from '../data/data';
 import '../css/inputCont.css'
 
 export default function InputField({ handleUpdate }) {
@@ -13,10 +13,6 @@ export default function InputField({ handleUpdate }) {
     }, [task, written]);
 
     function handleClick() {
-        if (task === 'reset') {
-            eraseData();
-            return;
-        }
         if (task) {
             data.tasks.push({
                 task: task,
@@ -24,7 +20,6 @@ export default function InputField({ handleUpdate }) {
                 id: Date.now(),
                 done: false
             });
-            alert('here');
             setTask('');
             handleUpdate();
         } else {
