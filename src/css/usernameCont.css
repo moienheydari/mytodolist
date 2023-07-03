@@ -24,7 +24,7 @@
     filter: blur(5px);
 }
 
-.usernameinput-cont{
+.usernameinput-cont {
     z-index: 2;
     position: absolute;
     display: flex;
@@ -43,12 +43,12 @@
     transition: 0.5s;
 }
 
-.usernameinput-cont.show{
+.usernameinput-cont.show {
     transform: translate(-50%, -50%);
     transition: 0.5s;
 }
 
-.usernameinput-cont.hide{
+.usernameinput-cont.hide {
     transform: translate(-50%, -75vh);
     transition: 0.5s;
 }
@@ -74,12 +74,12 @@
     transition: 0.3s ease;
 }
 
-.username-cont-butt:hover {
+.username-cont-butt:hover:not(.hide) {
     background-color: #ddff75;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.username-cont-butt:active {
+.username-cont-butt:active:not(.hide) {
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     transform: scale(0.95);

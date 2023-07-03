@@ -37,6 +37,12 @@ export default function InputField({ handleUpdate, pressed }) {
         }
     }
 
+    function handleKeyDown({key}) {
+        if (key === 'Enter') {
+            handleClick();
+        }
+    }
+
     return (
         <div className='input-field'>
             <div className='two-inputs'>
@@ -46,6 +52,7 @@ export default function InputField({ handleUpdate, pressed }) {
                     className='input-task'
                     placeholder='Task name'
                     onChange={({ target }) => { setTask(target.value) }}
+                    onKeyDown={handleKeyDown}
                     disabled={pressed}
                 />
                 <br />
