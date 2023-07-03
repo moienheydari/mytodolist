@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../data/data';
 import '../css/inputCont.css'
 
-export default function InputField({ handleUpdate }) {
+export default function InputField({ handleUpdate, pressed }) {
     const [task, setTask] = React.useState('');
     const [subtask, setSubTask] = React.useState('');
     const [written, setWritten] = React.useState(false);
@@ -46,6 +46,7 @@ export default function InputField({ handleUpdate }) {
                     className='input-task'
                     placeholder='Task name'
                     onChange={({ target }) => { setTask(target.value) }}
+                    disabled={pressed}
                 />
                 <br />
                 <textarea value={subtask}
@@ -53,9 +54,10 @@ export default function InputField({ handleUpdate }) {
                     placeholder='Task details'
                     className={`textarea ${written ? 'show' : 'hide'}`}
                     onChange={({ target }) => { setSubTask(target.value) }}
+                    disabled={pressed}
                 ></textarea>
             </div>
-            <button className='addButt' onClick={handleClick}>Add</button>
+            <button className={`addButt ${pressed ? 'hide' : 'show'}`} onClick={handleClick} disabled={pressed}>Add</button>
         </div>
     )
 

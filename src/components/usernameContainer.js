@@ -2,10 +2,10 @@ import React from 'react';
 import UsernameField from './usernameField';
 import '../css/usernameCont.css';
 
-export default function UsernameContainer () {
+export default function UsernameContainer ({handleUpdate, pressed, setPressed}) {
     return (
         <div className='username-Cont'>
-            <UsernameField />
+            <UsernameField handleUpdate={handleUpdate} pressed={pressed} setPressed={setPressed}/>
         </div>
     )
 }

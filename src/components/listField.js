@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../css/listCont.css';
 import data from '../data/data';
 
-export default function ListField({ task, subtask, done, id, handleUpdate }) {
+export default function ListField({ task, subtask, done, id, handleUpdate, pressed }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done);
     const [del, setDel] = useState(false);
@@ -49,10 +49,10 @@ export default function ListField({ task, subtask, done, id, handleUpdate }) {
 
     return (
         <div className={`list-field`}>
-            <div className={`task-field ${strike ? 'trans' : ''}`} onClick={handleTaskClick}>
-                <span className={`task-name ${strike ? 'strikethrough' : ''}`}>{task}</span>
-                <button className={`taskButt ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''}`} onClick={handleDoneClick}>Done</button>
-                <button className={`taskButt `} onClick={handleDelClick}>Del.</button>
+            <div className={`task-field ${strike ? 'trans' : ''}`}>
+                <span className={`task-name ${strike ? 'strikethrough' : ''} ${pressed ? 'hide' : 'show'}`} onClick={(pressed) ? null : handleTaskClick}>{task}</span>
+                <button disabled={pressed} className={`taskButt done ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Done</button>
+                <button disabled={pressed} className={`taskButt del ${pressed ? 'hide' : 'show'}`} onClick={handleDelClick}>Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
                 <span className={`subtask-text ${strike ? 'strikethrough' : ''}`}>{subtask}</span>

@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: 0.5s;
 }
 
 .App-header {
@@ -41,12 +42,16 @@ button {
   transition: 0.3s ease;
 }
 
-button:hover {
+button.hide {
+  cursor: default;
+}
+
+button:hover:not(.hide) {
   background-color: #ff7777;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-button:active {
+button:active:not(.hide) {
   background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   transform: scale(0.95);

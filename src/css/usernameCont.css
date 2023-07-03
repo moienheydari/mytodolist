@@ -20,7 +20,12 @@
     top: 25px;
 }
 
-.usernameinput-cont {
+.username-butt.hide {
+    filter: blur(5px);
+}
+
+.usernameinput-cont{
+    z-index: 2;
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -28,7 +33,6 @@
     justify-content: center;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
     width: 375px;
     height: 100px;
     border-radius: 5px;
@@ -36,6 +40,17 @@
     border: blue 1px solid;
     background-color: #00ffe1;
     padding: 1.7px;
+    transition: 0.5s;
+}
+
+.usernameinput-cont.show{
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+
+.usernameinput-cont.hide{
+    transform: translate(-50%, -75vh);
+    transition: 0.5s;
 }
 
 .input-username {
