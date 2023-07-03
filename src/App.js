@@ -3,6 +3,7 @@ import './App.css';
 import InputContainer from './components/inputContainer';
 import ListContainer from './components/listContainer';
 import data from './data/data';
+import UsernameContainer from './components/usernameContainer';
 
 function App() {
   const [update, setUpdate] = useState(false);
@@ -20,6 +21,7 @@ function App() {
       <body className="App-body">
         <InputContainer handleUpdate={toUpdate}/>
         <ListContainer handleUpdate={toUpdate}/>
+        <UsernameContainer />
       </body>
     </div>
   );

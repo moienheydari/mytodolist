@@ -9,6 +9,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #fcad1a;
     padding: 1.7px;
+    filter: blur(5px);
 }
 
 
