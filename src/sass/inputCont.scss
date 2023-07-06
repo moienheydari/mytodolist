@@ -1,3 +1,9 @@
+$sch-void: #0E0B16;
+$sch-ink: #062F4F;
+$sch-posy: #813772;
+$sch-embers: #B82601;
+
+
 .input-cont {
     z-index: 1;
     flex-direction: column;
@@ -7,7 +13,7 @@
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to bottom, rgb(255, 98, 41), rgb(255, 148, 40));
+    background: linear-gradient(to bottom, $sch-posy, #d171be);
 }
 
 .input-cont.hide {
@@ -49,7 +55,7 @@
     margin-bottom: 0px;
     font-size: 25px;
     font-weight: bold;
-    border-radius: 4px 4px 0 0;
+    border-radius: 6px 6px 0 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     background-color: #e0e0e0;
 }

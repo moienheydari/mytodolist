@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/usernameCont.css';
+import '../css/usernameCont.min.css';
 import data from '../data/data';
 
 export default function UsernameField({ handleUpdate, pressed, setPressed }) {

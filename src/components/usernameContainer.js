@@ -1,6 +1,6 @@
 import React from 'react';
 import UsernameField from './usernameField';
-import '../css/usernameCont.css';
+import '../css/usernameCont.min.css';
 
 export default function UsernameContainer ({handleUpdate, pressed, setPressed}) {
     return (

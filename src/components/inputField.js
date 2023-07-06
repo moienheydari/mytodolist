@@ -1,6 +1,6 @@
 import React from 'react';
 import data from '../data/data';
-import '../css/inputCont.css'
+import '../css/inputCont.min.css'
 
 export default function InputField({ handleUpdate, pressed }) {
     const [task, setTask] = React.useState('');

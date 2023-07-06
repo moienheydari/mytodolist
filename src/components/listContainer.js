@@ -1,7 +1,7 @@
 import React from 'react';
 import ListField from './listField';
 import data from '../data/data';
-import '../css/listCont.css';
+import '../css/listCont.min.css';
 
 export default function ListContainer({ handleUpdate, pressed }) {
     return (

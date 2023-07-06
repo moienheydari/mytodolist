@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/listCont.css';
+import '../css/listCont.min.css';
 import data from '../data/data';
 
 export default function ListField({ task, subtask, done, id, handleUpdate, pressed }) {

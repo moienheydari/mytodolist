@@ -1,6 +1,6 @@
 import React from 'react';
 import InputField from './inputField';
-import '../css/inputCont.css'
+import '../css/inputCont.min.css'
 
 export default function InputContainer ({handleUpdate, pressed}) {
     return (

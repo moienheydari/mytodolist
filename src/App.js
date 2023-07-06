@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './css/App.min.css';
 import InputContainer from './components/inputContainer';
 import ListContainer from './components/listContainer';
 import data from './data/data';
