@@ -1,3 +1,8 @@
+$sch-void: #0E0B16;
+$sch-ink: #062F4F;
+$sch-posy: #813772;
+$sch-embers: #B82601;
+
 .list-cont {
     margin-top: 5px;
     flex-direction: column;
@@ -7,8 +12,8 @@
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #fcad1a;
-    padding: 1.7px;
+    background: linear-gradient(to bottom, $sch-posy, #d171be);
+    padding: 4px;
 }
 
 .list-cont.hide {
@@ -36,7 +41,8 @@
     position: relative;
     border-radius: 5px 5px 0px 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #5e59b1;
+    background-color: $sch-ink;
+    padding: 3px;
 }
 
 .task-field * {
@@ -46,7 +52,7 @@
 .task-name {
     font-weight: bold;
     font-size: 25px;
-    color: #000000;
+    color: #ffffff;
     margin: 3px;
     cursor: grab;
 }
@@ -75,7 +81,7 @@
 }
 
 .subtask-text.strikethrough {
-    color: white;
+    color: rgb(97, 95, 95);
 }
 
 .subtask-detail.show {
@@ -84,7 +90,7 @@
 
 .strikethrough {
     text-decoration: line-through;
-    color: white;
+    color: rgb(97, 95, 95);
 }
 
 .taskButt {
@@ -108,13 +114,13 @@
 
 .task-field.trans {
     opacity: 0.75;
-    background-color: #000000;
+    background-color: $sch-void;
 
 }
 
 .subtask-detail.trans {
     opacity: 0.75;
-    background-color: #353535;
+    background-color: #888888;
 }
 
 .taskButt.trans {
