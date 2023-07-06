@@ -23,7 +23,7 @@
 }
 
 .App-body {
-  background-color: #019ab5;
+  background: linear-gradient(to bottom, rgb(82, 82, 255), #3fffec);
   height: 95vh;
   display: flex;
   flex-direction: column;

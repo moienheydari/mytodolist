@@ -7,7 +7,7 @@
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #ff5722;
+    background: linear-gradient(to bottom, rgb(255, 98, 41), rgb(255, 148, 40));
 }
 
 .input-cont.hide {
