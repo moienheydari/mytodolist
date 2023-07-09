@@ -5,60 +5,62 @@ $sch-embers: #B82601;
 
 
 .App {
-    text-align: center;
-  }
-  
-  * {
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: 0.5s;
-  }
-  
-  .App-header {
-    background-color: $sch-void;
-    display: flex;
-    height: 5vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-body {
-    background: linear-gradient(to bottom, $sch-ink, $sch-posy);
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  button {
-    font-weight: bold;
-    border: #000000 1.6px solid;
-    background-color: #ff0000;
-    color: #000000;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  button.hide {
-    cursor: default;
-  }
-  
-  button:hover:not(.hide) {
-    background-color: #ff7777;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  button:active:not(.hide) {
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    transform: scale(0.95);
-  }
+  margin: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+* {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.App-header {
+  background-color: $sch-void;
+  display: flex;
+  height: 5vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  background: linear-gradient(to bottom, $sch-ink, $sch-posy);
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+button {
+  font-weight: bold;
+  border: #000000 1.6px solid;
+  background-color: #ff0000;
+  color: #000000;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button.hide {
+  cursor: default;
+}
+
+button:hover:not(.hide) {
+  background-color: #ff7777;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button:active:not(.hide) {
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  transform: scale(0.95);
+}
