@@ -8,6 +8,7 @@ import UsernameContainer from './components/usernameContainer';
 function App() {
   const [update, setUpdate] = useState(false);
   const [pressed, setPressed] = useState(false);
+  const [editphase, setEditphase] = useState(false);
   function toUpdate () {setUpdate((prev)=>{return !prev;})};
 
   useEffect(()=>{
@@ -20,9 +21,9 @@ function App() {
         <p>Hello, {data.username}!</p>
       </header>
       <body className="App-body">
-        <UsernameContainer handleUpdate={toUpdate} pressed={pressed} setPressed={setPressed}/>
-        <InputContainer handleUpdate={toUpdate} pressed={pressed}/>
-        <ListContainer handleUpdate={toUpdate} pressed={pressed}/>
+        <UsernameContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setPressed={setPressed}/>
+        <InputContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase}/>
+        <ListContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setEditphase={setEditphase}/>
       </body>
     </div>
   );

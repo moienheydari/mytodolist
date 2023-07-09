@@ -2,7 +2,7 @@ import React from 'react';
 import data from '../data/data';
 import '../css/inputCont.min.css'
 
-export default function InputField({ handleUpdate, pressed }) {
+export default function InputField({ handleUpdate, pressed, editphase }) {
     const [task, setTask] = React.useState('');
     const [subtask, setSubTask] = React.useState('');
     const [written, setWritten] = React.useState(false);
@@ -49,11 +49,11 @@ export default function InputField({ handleUpdate, pressed }) {
                 <input value={task}
                     type='text'
                     name='main-input'
-                    className='input-task'
+                    className={`input-task ${(pressed||editphase) ? 'hide' : 'show'}`}
                     placeholder='Task name'
                     onChange={({ target }) => { setTask(target.value) }}
                     onKeyDown={handleKeyDown}
-                    disabled={pressed}
+                    disabled={pressed||editphase}
                 />
                 <br />
                 <textarea value={subtask}
@@ -61,10 +61,10 @@ export default function InputField({ handleUpdate, pressed }) {
                     placeholder='Task details'
                     className={`textarea ${written ? 'show' : 'hide'}`}
                     onChange={({ target }) => { setSubTask(target.value) }}
-                    disabled={pressed}
+                    disabled={pressed||editphase}
                 ></textarea>
             </div>
-            <button className={`addButt ${pressed ? 'hide' : 'show'}`} onClick={handleClick} disabled={pressed}>Add</button>
+            <button className={`addButt ${pressed||editphase ? 'hide' : 'show'}`} onClick={handleClick} disabled={pressed||editphase}>Add</button>
         </div>
     )
 

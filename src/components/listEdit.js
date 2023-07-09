@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import data from '../data/data';
 
-export default function ListEdit({ id, handleUpdate }) {
+export default function ListEdit({ id, handleUpdate, setEditmode, setEditphase }) {
     let myData;
     data.tasks.forEach(e => {
         if (e.id === id) {
@@ -9,7 +9,7 @@ export default function ListEdit({ id, handleUpdate }) {
         }
     });
     const [task, setTask] = useState(myData.task);
-    const [subtask, setSubTask] = React.useState(myData.subtask);
+    const [subtask, setSubTask] = React.useState(myData.subTask);
     const [edit, setEdit] = useState(false);
 
     useEffect(() => {
@@ -27,7 +27,9 @@ export default function ListEdit({ id, handleUpdate }) {
             })
             localStorage.setItem('myData', JSON.stringify(data));
             handleUpdate();
+            setEditphase((prev) => { return !prev });
             setEdit(false);
+            setEditmode(false);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [edit]);

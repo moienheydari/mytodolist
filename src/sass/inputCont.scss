@@ -52,7 +52,7 @@ $sch-embers: #B82601;
                 background-color: #e0e0e0;
             }
 
-            .input-task:hover {
+            .input-task.show:hover {
                 border: #000000 2.5px solid;
             }
 
@@ -80,6 +80,7 @@ $sch-embers: #B82601;
         }
     }
 }
+
 .input-cont.hide {
     filter: blur(5px);
 }

@@ -31,6 +31,9 @@ $sch-embers: #B82601;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.list-field.hide {
+    filter: blur(5px);
+}
 
 .task-field {
     margin-bottom: 0px;
@@ -134,7 +137,7 @@ $sch-embers: #B82601;
 }
 
 .listedit-cont {
-    position: absolute; 
+    position: absolute;
     z-index: 2;
     margin-top: 5px;
     flex-direction: column;

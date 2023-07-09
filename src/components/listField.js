@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import '../css/listCont.min.css';
 import data from '../data/data';
 import ListEdit from './listEdit';
-import ReactDOM from 'react-dom/client';
 
-export default function ListField({ task, subtask, done, id, handleUpdate, pressed }) {
+export default function ListField({ task, subtask, done, id, handleUpdate, pressed, setEditphase, editphase }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done);
     const [del, setDel] = useState(false);
+    const [editmode, setEditmode] = useState(false);
 
     useEffect(() => {
         data.tasks = data.tasks.map(e => {
@@ -50,23 +50,32 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
     }
 
     function handleEditClick() {
-        const root = ReactDOM.createRoot(document.querySelector('#listedit-cont'));
-        root.render(
-                <ListEdit id={id} pressed={pressed} handleUpdate={handleUpdate}/>
-        );
+        setEditphase((prev) => { return !prev });
+        setEditmode(true);
     }
 
     return (
-        <div className={`list-field`}>
-            <div className={`task-field ${strike ? 'trans' : ''}`}>
-                <span className={`task-name ${strike ? 'strikethrough' : ''} ${pressed ? 'hide' : 'show'}`} onClick={(pressed) ? null : handleTaskClick}>{task}</span>
-                <button disabled={pressed} className={`taskButt done ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Done</button>
-                <button disabled={pressed} className={`taskButt edit ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleEditClick}>Edit</button>
-                <button disabled={pressed} className={`taskButt del ${pressed ? 'hide' : 'show'}`} onClick={handleDelClick}>Del.</button>
+        <>
+            <div className={`list-field ${(pressed||editphase) ? 'hide' : 'show'}`}>
+                <div className={`task-field ${strike ? 'trans' : ''}`}>
+                    <span className={`task-name ${strike ? 'strikethrough' : ''} ${(pressed||editphase) ? 'hide' : 'show'}`} onClick={(pressed||editphase) ? null : handleTaskClick}>{task}</span>
+                    <button disabled={(pressed||editphase)} className={`taskButt done ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${(pressed||editphase) ? 'hide' : 'show'}`} onClick={handleDoneClick}>Done</button>
+                    <button disabled={(pressed||editphase||strike)} className={`taskButt edit ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${(pressed||editphase||strike) ? 'hide' : 'show'}`} onClick={handleEditClick}>Edit</button>
+                    <button disabled={(pressed||editphase)} className={`taskButt del ${(pressed||editphase) ? 'hide' : 'show'}`} onClick={handleDelClick}>Del.</button>
+                </div>
+                <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
+                    <span className={`subtask-text ${strike ? 'strikethrough' : ''}`}>{subtask}</span>
+                </div>
             </div>
-            <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
-                <span className={`subtask-text ${strike ? 'strikethrough' : ''}`}>{subtask}</span>
-            </div>
-        </div>
+            {
+                (editmode) ?
+                    (
+                        <div className='listedit-cont'>
+                            <ListEdit setEditphase={setEditphase} id={id} pressed={pressed} handleUpdate={handleUpdate} setEditmode={setEditmode}/>
+                        </div>
+                    )
+                    : <></>
+            }
+        </>
     )
 }

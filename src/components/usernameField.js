@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../css/usernameCont.min.css';
 import data from '../data/data';
 
-export default function UsernameField({ handleUpdate, pressed, setPressed }) {
+export default function UsernameField({ handleUpdate, pressed, setPressed, editphase }) {
     const [name, setName] = useState('');
 
     function handleChangePress() {
@@ -28,7 +28,7 @@ export default function UsernameField({ handleUpdate, pressed, setPressed }) {
 
     return (
         <div className='username-Field'>
-            <button disabled={pressed} className={`username-butt username-cont-butt ${pressed ? 'hide' : 'show'}`} onClick={handleChangePress}>Change Username</button>
+            <button disabled={(pressed||editphase)} className={`username-butt username-cont-butt ${editphase ? 'hide' : 'show'}`} onClick={handleChangePress}>Change Username</button>
             <div className={`usernameinput-cont show ${pressed ? 'show' : 'hide'}`}>
                 <input value={name}
                     type='text'
