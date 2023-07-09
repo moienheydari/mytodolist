@@ -70,7 +70,7 @@ export default function ListEdit({ id, handleUpdate, setEditmode, setEditphase }
                     onChange={({ target }) => { setSubTask(target.value) }}
                 ></textarea>
             </div>
-            <button className={`addButt`} onClick={handleClick}>Add</button>
+            <button className={`addButt`} onClick={handleClick}>Done</button>
         </div>
     )
 }
