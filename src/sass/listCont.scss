@@ -8,7 +8,7 @@ $sch-embers: #B82601;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 95%;
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -102,9 +102,14 @@ $sch-embers: #B82601;
     border-radius: 40%;
 }
 
+.taskButt.edit {
+    position: absolute;
+    right: 102px;
+}
+
 .taskButt.done {
     position: absolute;
-    right: 50px;
+    right: 52px;
 }
 
 .taskButt.del {

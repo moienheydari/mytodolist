@@ -21,7 +21,7 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
         if (del) {
             setDel(false);
             data.tasks = data.tasks.filter(e => {
-                if (e.task === id) {
+                if (e.id === id) {
                     return false;
                 } else {
                     return true;
@@ -52,6 +52,7 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
             <div className={`task-field ${strike ? 'trans' : ''}`}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''} ${pressed ? 'hide' : 'show'}`} onClick={(pressed) ? null : handleTaskClick}>{task}</span>
                 <button disabled={pressed} className={`taskButt done ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Done</button>
+                <button disabled={pressed} className={`taskButt edit ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Edit</button>
                 <button disabled={pressed} className={`taskButt del ${pressed ? 'hide' : 'show'}`} onClick={handleDelClick}>Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
