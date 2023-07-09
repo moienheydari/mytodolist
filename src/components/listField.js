@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../css/listCont.min.css';
 import data from '../data/data';
+import ListEdit from './listEdit';
+import ReactDOM from 'react-dom/client';
 
 export default function ListField({ task, subtask, done, id, handleUpdate, pressed }) {
     const [clicked, setClicked] = useState(false);
@@ -47,12 +49,19 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
         setDel(true);
     }
 
+    function handleEditClick() {
+        const root = ReactDOM.createRoot(document.querySelector('#listedit-cont'));
+        root.render(
+                <ListEdit id={id} pressed={pressed} handleUpdate={handleUpdate}/>
+        );
+    }
+
     return (
         <div className={`list-field`}>
             <div className={`task-field ${strike ? 'trans' : ''}`}>
                 <span className={`task-name ${strike ? 'strikethrough' : ''} ${pressed ? 'hide' : 'show'}`} onClick={(pressed) ? null : handleTaskClick}>{task}</span>
                 <button disabled={pressed} className={`taskButt done ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Done</button>
-                <button disabled={pressed} className={`taskButt edit ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleDoneClick}>Edit</button>
+                <button disabled={pressed} className={`taskButt edit ${strike ? 'strikethrough' : ''}  ${strike ? 'trans' : ''} ${pressed ? 'hide' : 'show'}`} onClick={handleEditClick}>Edit</button>
                 <button disabled={pressed} className={`taskButt del ${pressed ? 'hide' : 'show'}`} onClick={handleDelClick}>Del.</button>
             </div>
             <div className={`subtask-detail ${clicked ? 'show' : 'hide'} ${strike ? 'trans' : ''}`}>
