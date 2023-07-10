@@ -16,8 +16,9 @@
 
 .username-butt {
     position: absolute;
-    right: 15px;
-    top: 25px;
+    font-size: 15px;
+    right: 12px;
+    top: 4vh;
 }
 
 .username-butt.hide {
@@ -83,4 +84,9 @@
     background-color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     transform: scale(0.95);
+}
+
+
+@media (max-width: 780px) { 
+
 }

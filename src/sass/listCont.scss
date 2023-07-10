@@ -222,3 +222,37 @@ $sch-embers: #B82601;
         }
     }
 }
+
+
+@media (max-width: 780px) { 
+    .task-name {
+        font-size: 15px;
+    }
+    
+    .subtask-text {
+        font-size: 10px;
+    }
+    
+    
+    .subtask-detail.show {
+        height: 50px;
+    }
+    
+    .taskButt {
+        font-size: 9px;
+        height: 24px;
+        width: 30px;
+    }
+    
+    .taskButt.edit {
+        right: 70px;
+    }
+    
+    .taskButt.done {
+        right: 35px;
+    }
+    
+    .taskButt.del {
+        right: 2px;
+    }
+}
