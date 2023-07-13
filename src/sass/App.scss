@@ -22,9 +22,9 @@ $sch-embers: #B82601;
 .App-header {
   background-color: $sch-void;
   display: flex;
-  height: 5vh;
-  max-height: 5vh;
-  overflow: auto;
+  width: 100%;
+  height: 32px;
+  position: absolute;
   flex-direction: column;
   align-items: center;
   justify-content: center;
