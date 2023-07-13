@@ -21,7 +21,7 @@ Users should be able to:
 - Edit their tasks and mark them as done/undone
 
 ### Screenshot
-![](./src/screenshot.png)
+![](./screenshot.jpg)
 
 ### Links
 
