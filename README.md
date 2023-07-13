@@ -17,8 +17,8 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Be able to save their to do list even when the exit or refresh the browser
-- Be able to edit their tasks and mark them as done/undone
+- Save their to do list even when the exit or refresh the browser
+- Edit their tasks and mark them as done/undone
 
 ### Screenshot
 
