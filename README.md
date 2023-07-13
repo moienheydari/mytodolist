@@ -21,12 +21,7 @@ Users should be able to:
 - Edit their tasks and mark them as done/undone
 
 ### Screenshot
-
-## Desktop version :
-![](./screenshot.jpg)
-
-## Mobile version :
-![](./screenshot_mobile.jpg)
+![](./src/screenshot.png)
 
 ### Links
 
