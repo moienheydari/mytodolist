@@ -1,7 +1,4 @@
-$sch-void: #0E0B16;
-$sch-ink: #062F4F;
-$sch-posy: #813772;
-$sch-embers: #B82601;
+@import 'base';
 
 .input-cont {
     z-index: 1;
@@ -12,7 +9,7 @@ $sch-embers: #B82601;
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to bottom, $sch-posy, #d171be);
+    background: linear-gradient(to bottom, $color2, $color3);
 
     * {
         margin: 2.5px;
@@ -41,22 +38,24 @@ $sch-embers: #B82601;
             }
 
             .input-task {
-                border: #696969 2.5px solid;
+                border: $color5 2px solid;
                 width: 100%;
                 padding: 2px;
                 margin-bottom: 0px;
-                font-size: 25px;
+                font-size: 20px;
                 font-weight: bold;
                 border-radius: 6px 6px 0 0;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-                background-color: #e0e0e0;
+                box-shadow: 0 2px 5px rgba(51, 51, 51, 0.3);
+                background-color: $color1;
             }
 
             .input-task.show:hover {
-                border: #000000 2.5px solid;
+                border: $color6 2px solid;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             }
 
             .textarea {
+                border: $color6 1.5px solid;
                 width: 100%;
                 padding: 0px;
                 margin-top: 0;
@@ -66,7 +65,7 @@ $sch-embers: #B82601;
                 transition: 500ms ease;
                 border-radius: 0 0 4px 4px;
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-                background-color: #ffffff;
+                background-color: $color1;
                 transform-origin: top;
                 transform: scaleY(0);
                 resize: none;

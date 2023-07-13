@@ -2,6 +2,8 @@ $sch-void: #0E0B16;
 $sch-ink: #062F4F;
 $sch-posy: #813772;
 $sch-embers: #B82601;
+@import 'base';
+
 
 .list-cont {
     margin-top: 5px;
@@ -12,7 +14,7 @@ $sch-embers: #B82601;
     display: flex;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to bottom, $sch-posy, #d171be);
+    background: linear-gradient(to bottom, $color3, $color4);
     padding: 4px;
 }
 
@@ -44,7 +46,7 @@ $sch-embers: #B82601;
     position: relative;
     border-radius: 5px 5px 0px 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: $sch-ink;
+    background-color: $color6;
     padding: 3px;
 }
 
@@ -55,7 +57,7 @@ $sch-embers: #B82601;
 .task-name {
     font-weight: bold;
     font-size: 25px;
-    color: #ffffff;
+    color: $color1;
     margin: 3px;
     cursor: grab;
 }
@@ -74,17 +76,17 @@ $sch-embers: #B82601;
     transition: 500ms ease;
     border-radius: 0px 0px 5px 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    background-color: #9e99ff;
+    background-color: $color5;
 }
 
 .subtask-text {
     font-size: 16px;
-    color: #500404;
+    color: $color2;
     margin: 2.5px;
 }
 
 .subtask-text.strikethrough {
-    color: rgb(97, 95, 95);
+    color: $color2;
 }
 
 .subtask-detail.show {
@@ -93,7 +95,7 @@ $sch-embers: #B82601;
 
 .strikethrough {
     text-decoration: line-through;
-    color: rgb(97, 95, 95);
+    color: $color4;
 }
 
 .taskButt {
