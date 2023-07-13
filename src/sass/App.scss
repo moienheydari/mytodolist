@@ -1,8 +1,4 @@
-$sch-void: #0E0B16;
-$sch-ink: #062F4F;
-$sch-posy: #813772;
-$sch-embers: #B82601;
-
+@import 'base';
 
 .App {
   margin: 0;
@@ -20,32 +16,35 @@ $sch-embers: #B82601;
 }
 
 .App-header {
-  background-color: $sch-void;
+  background-color: $color6;
   display: flex;
   height: 5vh;
+  max-height: 5vh;
+  overflow: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $color1;
 }
 
 .App-body {
-  background: linear-gradient(to bottom, $sch-ink, $sch-posy);
-  height: 95vh;
+  background: url('../background.jpg') no-repeat center center / cover;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 button {
   font-weight: bold;
-  border: #000000 1.6px solid;
-  background-color: #ff0000;
-  color: #000000;
+  border: $color6 1.6px solid;
+  background-color: $color3;
+  color: $color6;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -55,12 +54,12 @@ button.hide {
 }
 
 button:hover:not(.hide) {
-  background-color: #ff7777;
+  background-color: $color2;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 button:active:not(.hide) {
-  background-color: #ffffff;
+  background-color: $color1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   transform: scale(0.95);
 }
