@@ -63,3 +63,33 @@ button:active:not(.hide) {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   transform: scale(0.95);
 }
+
+.all-task {
+  z-index: 1;
+  height: 80%;
+  width: 100%;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgb(89, 89, 89) rgb(255, 255, 255);
+}
+
+.all-task::-webkit-scrollbar {
+  width: 15px; 
+}
+
+.all-task::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255); 
+}
+
+.all-task::-webkit-scrollbar-thumb {
+  background-color: rgb(89, 89, 89); 
+}
+
+
+.all-task.hidden {
+  overflow-y: hidden;
+}

@@ -9,10 +9,10 @@ function App() {
   const [update, setUpdate] = useState(false);
   const [pressed, setPressed] = useState(false);
   const [editphase, setEditphase] = useState(false);
-  function toUpdate () {setUpdate((prev)=>{return !prev;})};
+  function toUpdate() { setUpdate((prev) => { return !prev; }) };
 
-  useEffect(()=>{
-    setUpdate((prev)=>{return !prev;});
+  useEffect(() => {
+    setUpdate((prev) => { return !prev; });
   }, [update]);
 
   return (
@@ -21,9 +21,11 @@ function App() {
         <p>Hello, {data.username}!</p>
       </header>
       <body className="App-body">
-        <UsernameContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setPressed={setPressed}/>
-        <InputContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase}/>
-        <ListContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setEditphase={setEditphase}/>
+        <UsernameContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setPressed={setPressed} />
+        <div className={`all-task ${(pressed || editphase)? 'hidden' : ''}`}>
+          <InputContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} />
+          <ListContainer handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setEditphase={setEditphase} />
+        </div>
       </body>
     </div>
   );

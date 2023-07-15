@@ -6,6 +6,8 @@ $sch-embers: #B82601;
 
 
 .list-cont {
+    margin: auto;
+    margin-top: 0;
     margin-top: 5px;
     flex-direction: column;
     align-items: center;
@@ -86,7 +88,7 @@ $sch-embers: #B82601;
 }
 
 .subtask-text.strikethrough {
-    color: $color2;
+    color: $color3;
 }
 
 .subtask-detail.show {
@@ -124,18 +126,17 @@ $sch-embers: #B82601;
 
 .task-field.trans {
     opacity: 0.75;
-    background-color: $sch-void;
-
+    background-color: $color3;
 }
 
 .subtask-detail.trans {
     opacity: 0.75;
-    background-color: #888888;
+    background-color: $color2;
 }
 
 .taskButt.trans {
     color: #000000;
-    background-color: white;
+    background-color: $color1;
 }
 
 .listedit-cont {
