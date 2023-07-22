@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{JSON.stringify(localData.current)}</p>
+        <p>Hello, {localData.current.username}!</p>
       </header>
       <body className="App-body">
         <UsernameContainer data={localData.current} handleUpdate={toUpdate} pressed={pressed} editphase={editphase} setPressed={setPressed} />
