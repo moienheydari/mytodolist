@@ -10,7 +10,7 @@ export default function ListField({ data, task, subtask, done, id, handleUpdate,
 
     useEffect(() => {
         data.tasks = data.tasks.map(e => {
-            if (e.task === id) {
+            if (e.id === id) {
                 return {
                     ...e,
                     done: strike,
