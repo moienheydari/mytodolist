@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../css/listCont.min.css';
-import data from '../data/data';
 import ListEdit from './listEdit';
 
-export default function ListField({ task, subtask, done, id, handleUpdate, pressed, setEditphase, editphase }) {
+export default function ListField({ data, task, subtask, done, id, handleUpdate, pressed, setEditphase, editphase }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done);
     const [del, setDel] = useState(false);
@@ -30,9 +29,8 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
                 }
             })
         }
-        localStorage.setItem('myData', JSON.stringify(data));
         handleUpdate();
-    }, [del, strike, handleUpdate, id]);
+    }, [del, strike, handleUpdate, id, data]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
@@ -71,7 +69,7 @@ export default function ListField({ task, subtask, done, id, handleUpdate, press
                 (editmode) ?
                     (
                         <div className='listedit-cont'>
-                            <ListEdit setEditphase={setEditphase} id={id} pressed={pressed} handleUpdate={handleUpdate} setEditmode={setEditmode}/>
+                            <ListEdit data={data} setEditphase={setEditphase} id={id} pressed={pressed} handleUpdate={handleUpdate} setEditmode={setEditmode}/>
                         </div>
                     )
                     : <></>

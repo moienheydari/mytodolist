@@ -1,8 +1,7 @@
 import React from 'react';
-import data from '../data/data';
 import '../css/inputCont.min.css'
 
-export default function InputField({ handleUpdate, pressed, editphase }) {
+export default function InputField({ data, handleUpdate, pressed, editphase }) {
     const [task, setTask] = React.useState('');
     const [subtask, setSubTask] = React.useState('');
     const [written, setWritten] = React.useState(false);
@@ -14,12 +13,11 @@ export default function InputField({ handleUpdate, pressed, editphase }) {
 
     function handleClick() {
         if (task === 'reset') {
-            localStorage.removeItem('myData');
             data.tasks = [];
             handleUpdate();
             return;
         }
-        if (task && data.tasks.length < 17) {
+        if (task) {
             data.tasks.push({
                 task: task,
                 subTask: subtask,
@@ -27,11 +25,7 @@ export default function InputField({ handleUpdate, pressed, editphase }) {
                 done: false
             });
             setTask('');
-            localStorage.setItem('myData', JSON.stringify(data));
             handleUpdate();
-        } else if (data.tasks.length > 16) {
-            setTask('');
-            alert('No more tasks, delete some');
         } else {
             alert('PLease enter a task');
         }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import data from '../data/data';
 
-export default function ListEdit({ id, handleUpdate, setEditmode, setEditphase }) {
+export default function ListEdit({ data, id, handleUpdate, setEditmode, setEditphase }) {
     let myData;
     data.tasks.forEach(e => {
         if (e.id === id) {
@@ -25,7 +24,6 @@ export default function ListEdit({ id, handleUpdate, setEditmode, setEditphase }
                     return e;
                 }
             })
-            localStorage.setItem('myData', JSON.stringify(data));
             handleUpdate();
             setEditphase((prev) => { return !prev });
             setEdit(false);

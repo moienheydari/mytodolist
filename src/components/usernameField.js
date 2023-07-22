@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../css/usernameCont.min.css';
-import data from '../data/data';
 
-export default function UsernameField({ handleUpdate, pressed, setPressed, editphase }) {
+export default function UsernameField({ data, handleUpdate, pressed, setPressed, editphase }) {
     const [name, setName] = useState('');
 
     function handleChangePress() {
@@ -13,7 +12,6 @@ export default function UsernameField({ handleUpdate, pressed, setPressed, editp
     function handleOk() {
         if (name) {
             data.username = name;
-            localStorage.setItem('myData', JSON.stringify(data));
             setName('');
             handleUpdate();
         }
