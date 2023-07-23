@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../css/usernameCont.min.css';
 
-export default function UsernameField({ data, handleUpdate, pressed, setPressed, editphase }) {
+export default function UsernameField({ pressed, setPressed, editphase }) {
     const [name, setName] = useState('');
+    const data = useContext(DataContx).data;
+    const setData = useContext(DataContx).setData;
 
     function handleChangePress() {
         setPressed((prev) => { return !prev });
-        handleUpdate();
     }
 
     function handleOk() {
         if (name) {
             data.username = name;
+            setData(data);
             setName('');
-            handleUpdate();
         }
         setPressed((prev) => { return !prev });
     }

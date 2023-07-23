@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-export default function ListEdit({ data, id, handleUpdate, setEditmode, setEditphase }) {
+export default function ListEdit({ id, setEditmode, setEditphase }) {
+    const [task, setTask] = useState(myData.task);
+    const [subtask, setSubTask] = React.useState(myData.subTask);
+    const [edit, setEdit] = useState(false);
+    const data = useContext(DataContx).data;
+    const setData = useContext(DataContx).setData;
+
     let myData;
     data.tasks.forEach(e => {
         if (e.id === id) {
             myData = e;
         }
     });
-    const [task, setTask] = useState(myData.task);
-    const [subtask, setSubTask] = React.useState(myData.subTask);
-    const [edit, setEdit] = useState(false);
 
     useEffect(() => {
         if (edit) {
@@ -24,7 +27,7 @@ export default function ListEdit({ data, id, handleUpdate, setEditmode, setEditp
                     return e;
                 }
             })
-            handleUpdate();
+            setData(data);
             setEditphase((prev) => { return !prev });
             setEdit(false);
             setEditmode(false);

@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../css/listCont.min.css';
 import ListEdit from './listEdit';
 
-export default function ListField({ data, task, subtask, done, id, handleUpdate, pressed, setEditphase, editphase }) {
+export default function ListField({ task, subtask, done, id, pressed, setEditphase, editphase }) {
     const [clicked, setClicked] = useState(false);
     const [strike, setStrike] = useState(done);
     const [del, setDel] = useState(false);
     const [editmode, setEditmode] = useState(false);
+    const data = useContext(DataContx).data;
+    const setData = useContext(DataContx).setData;
 
     useEffect(() => {
         data.tasks = data.tasks.map(e => {
@@ -29,8 +31,8 @@ export default function ListField({ data, task, subtask, done, id, handleUpdate,
                 }
             })
         }
-        handleUpdate();
-    }, [del, strike, handleUpdate, id, data]);
+        setData(data);
+    }, [del, strike, id, data]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
@@ -69,7 +71,7 @@ export default function ListField({ data, task, subtask, done, id, handleUpdate,
                 (editmode) ?
                     (
                         <div className='listedit-cont'>
-                            <ListEdit data={data} setEditphase={setEditphase} id={id} pressed={pressed} handleUpdate={handleUpdate} setEditmode={setEditmode}/>
+                            <ListEdit setEditphase={setEditphase} id={id} pressed={pressed} setEditmode={setEditmode}/>
                         </div>
                     )
                     : <></>

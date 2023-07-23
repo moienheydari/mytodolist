@@ -1,33 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import './css/App.min.css';
 import InputContainer from './components/inputContainer';
 import ListContainer from './components/listContainer';
 import UsernameContainer from './components/usernameContainer';
 
+const DataContx = createContext(null);
+
 function App() {
-  const [pressed, setPressed] = useState(false);
-  const [editphase, setEditphase] = useState(false);
-  const localData = useRef(localStorage.getItem('myData') ? JSON.parse(localStorage.getItem('myData')) : {
+  const [localData, setLocalData] = useState(localStorage.getItem('myData') ? JSON.parse(localStorage.getItem('myData')) : {
     username: 'No One',
     tasks: []
-  });
+  })
+  const [pressed, setPressed] = useState(false);
+  const [editphase, setEditphase] = useState(false);
 
-  function updateData() {
-    localStorage.setItem('myData', JSON.stringify(localData.current));
-  }
+  useEffect(() => {
+    localStorage.setItem('myData', JSON.stringify(localData));
+  }, [localData]);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>Hello, {localData.current.username}!</p>
+        <p>Hello, {localData.username}!</p>
       </header>
-      <body className="App-body">
-        <UsernameContainer data={localData.current} handleUpdate={updateData} pressed={pressed} editphase={editphase} setPressed={setPressed} />
-        <div className={`all-task ${(pressed || editphase) ? 'hidden' : ''}`}>
-          <InputContainer data={localData.current} handleUpdate={updateData} pressed={pressed} editphase={editphase} />
-          <ListContainer data={localData.current} handleUpdate={updateData} pressed={pressed} editphase={editphase} setEditphase={setEditphase} />
-        </div>
-      </body>
+      <DataContx.Provider value={{ data: localData, setData: setLocalData }}>
+        <body className="App-body">
+          <UsernameContainer pressed={pressed} editphase={editphase} setPressed={setPressed} />
+          <div className={`all-task ${(pressed || editphase) ? 'hidden' : ''}`}>
+            <InputContainer pressed={pressed} editphase={editphase} />
+            <ListContainer pressed={pressed} editphase={editphase} setEditphase={setEditphase} />
+          </div>
+        </body>
+      </DataContx.Provider>
     </div>
   );
 }

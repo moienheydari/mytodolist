@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import InputField from './inputField';
 import '../css/inputCont.min.css'
 
-export default function InputContainer ({data, handleUpdate, pressed, editphase}) {
+export default function InputContainer ({pressed, editphase}) {
     return (
         <div className={`input-cont ${(pressed||editphase) ? 'hide' : 'show'}`}>
-            <InputField data={data} handleUpdate={handleUpdate} pressed={pressed} editphase={editphase}/>
+            <InputField pressed={pressed} editphase={editphase}/>
         </div>
     )
 }

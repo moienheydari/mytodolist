@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import '../css/inputCont.min.css'
 
-export default function InputField({ data, handleUpdate, pressed, editphase }) {
+export default function InputField({ pressed, editphase }) {
     const [task, setTask] = React.useState('');
     const [subtask, setSubTask] = React.useState('');
     const [written, setWritten] = React.useState(false);
+    const data = useContext(DataContx).data;
+    const setData = useContext(DataContx).setData;
 
-    React.useEffect(() => {
+    useEffect(() => {
         setWritten((task !== ""));
         setSubTask((prev) => { setSubTask(written ? prev : '') });
     }, [task, written]);
@@ -14,7 +16,7 @@ export default function InputField({ data, handleUpdate, pressed, editphase }) {
     function handleClick() {
         if (task === 'reset') {
             data.tasks = [];
-            handleUpdate();
+            setData(data);
             return;
         }
         if (task) {
@@ -24,8 +26,8 @@ export default function InputField({ data, handleUpdate, pressed, editphase }) {
                 id: Date.now(),
                 done: false
             });
+            setData(data);
             setTask('');
-            handleUpdate();
         } else {
             alert('PLease enter a task');
         }
