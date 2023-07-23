@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { DataContx } from '../App';
 
 export default function ListEdit({ id, setEditmode, setEditphase }) {
-    const [task, setTask] = useState(myData.task);
-    const [subtask, setSubTask] = React.useState(myData.subTask);
-    const [edit, setEdit] = useState(false);
     const data = useContext(DataContx).data;
     const setData = useContext(DataContx).setData;
 
@@ -13,6 +11,11 @@ export default function ListEdit({ id, setEditmode, setEditphase }) {
             myData = e;
         }
     });
+    
+    const [task, setTask] = useState(myData.task);
+    const [subtask, setSubTask] = React.useState(myData.subTask);
+    const [edit, setEdit] = useState(false);
+
 
     useEffect(() => {
         if (edit) {

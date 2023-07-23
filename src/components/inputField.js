@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import '../css/inputCont.min.css'
+import '../css/inputCont.min.css';
+import { DataContx } from '../App';
 
 export default function InputField({ pressed, editphase }) {
     const [task, setTask] = React.useState('');
@@ -20,12 +21,14 @@ export default function InputField({ pressed, editphase }) {
             return;
         }
         if (task) {
+            // alert(JSON.stringify(data));
             data.tasks.push({
                 task: task,
                 subTask: subtask,
                 id: Date.now(),
                 done: false
             });
+            // alert(JSON.stringify(data));
             setData(data);
             setTask('');
         } else {

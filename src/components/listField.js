@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import '../css/listCont.min.css';
 import ListEdit from './listEdit';
+import { DataContx } from '../App';
 
 export default function ListField({ task, subtask, done, id, pressed, setEditphase, editphase }) {
     const [clicked, setClicked] = useState(false);
@@ -32,7 +33,7 @@ export default function ListField({ task, subtask, done, id, pressed, setEditpha
             })
         }
         setData(data);
-    }, [del, strike, id, data]);
+    }, [del, strike, id, data, setData]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });

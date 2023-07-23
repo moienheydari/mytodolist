@@ -4,7 +4,7 @@ import InputContainer from './components/inputContainer';
 import ListContainer from './components/listContainer';
 import UsernameContainer from './components/usernameContainer';
 
-const DataContx = createContext(null);
+export const DataContx = createContext(null);
 
 function App() {
   const [localData, setLocalData] = useState(localStorage.getItem('myData') ? JSON.parse(localStorage.getItem('myData')) : {
@@ -23,7 +23,7 @@ function App() {
       <header className="App-header">
         <p>Hello, {localData.username}!</p>
       </header>
-      <DataContx.Provider value={{ data: localData, setData: setLocalData }}>
+      <DataContx.Provider value={{ data: localData, setData: (e)=>{setLocalData(e);} }}>
         <body className="App-body">
           <UsernameContainer pressed={pressed} editphase={editphase} setPressed={setPressed} />
           <div className={`all-task ${(pressed || editphase) ? 'hidden' : ''}`}>

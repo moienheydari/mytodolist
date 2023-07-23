@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import '../css/usernameCont.min.css';
+import { DataContx } from '../App';
 
 export default function UsernameField({ pressed, setPressed, editphase }) {
     const [name, setName] = useState('');

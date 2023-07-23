@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ListField from './listField';
 import '../css/listCont.min.css';
+import { DataContx } from '../App';
 
 export default function ListContainer({ pressed, setEditphase, editphase }) {
     const data = useContext(DataContx).data;
