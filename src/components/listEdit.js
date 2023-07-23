@@ -30,7 +30,7 @@ export default function ListEdit({ id, setEditmode, setEditphase }) {
                     return e;
                 }
             })
-            setData(data);
+            setData({...data});
             setEditphase((prev) => { return !prev });
             setEdit(false);
             setEditmode(false);

@@ -17,7 +17,7 @@ export default function InputField({ pressed, editphase }) {
     function handleClick() {
         if (task === 'reset') {
             data.tasks = [];
-            setData(data);
+            setData({...data});
             return;
         }
         if (task) {
@@ -29,7 +29,7 @@ export default function InputField({ pressed, editphase }) {
                 done: false
             });
             // alert(JSON.stringify(data));
-            setData(data);
+            setData({...data});
             setTask('');
         } else {
             alert('PLease enter a task');

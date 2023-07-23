@@ -14,7 +14,7 @@ export default function UsernameField({ pressed, setPressed, editphase }) {
     function handleOk() {
         if (name) {
             data.username = name;
-            setData(data);
+            setData({...data});
             setName('');
         }
         setPressed((prev) => { return !prev });
