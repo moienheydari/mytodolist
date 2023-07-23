@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import InputField from './inputField';
 import '../css/inputCont.min.css'
 
