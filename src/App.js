@@ -23,7 +23,7 @@ function App() {
       <header className="App-header">
         <p>Hello, {localData.username}!</p>
       </header>
-      <DataContx.Provider value={{ data: localData, setData: (e)=>{setLocalData(e);} }}>
+      <DataContx.Provider value={{ data: localData, setData: setLocalData }}>
         <body className="App-body">
           <UsernameContainer pressed={pressed} editphase={editphase} setPressed={setPressed} />
           <div className={`all-task ${(pressed || editphase) ? 'hidden' : ''}`}>
