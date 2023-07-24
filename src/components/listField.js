@@ -33,7 +33,7 @@ export default function ListField({ task, subtask, done, id, pressed, setEditpha
             })
         }
         setData({...data});
-    }, [del, strike, id, data, setData]);
+    }, [del, strike]);
 
     function handleDoneClick() {
         setStrike((prev) => { return !prev });
